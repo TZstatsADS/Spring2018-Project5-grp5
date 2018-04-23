@@ -11,6 +11,8 @@ Term: Spring 2018
 	+ Xiuruo Yan
 	+ Linna Yu
 	+ Mingming Liu
+	
+![image](figs/1.png)
 + Project summary: Music is a method that we can communicate with the other people. We express our happy, sad and anger. However, there are mathematical relationship inside it, like the octaves, keys and scales. Because of this precise relationship, we can use computer to generate musics.
     In this project we implement recurrent neural network trained to generate pop music. The model, which uses LSTM layers and draws inspiration from convolutional neural networks, learns to predict which notes will be played at each time step of a musical piece.We used TensorFlow deep learning frame work and worte code in python. We need miod package to download midi files and the following packages are required: **mido**, **bs4**, **lxml**. The main document is used to train the model. Here, you can use our pre-trained model or change arguments in the main file to train a new model. After training this model, we can use the predict part to predict new songs. 
     
