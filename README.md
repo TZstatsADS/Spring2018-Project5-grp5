@@ -1,4 +1,4 @@
-
+s
 # ADS Project 5: 
 
 Term: Spring 2018
@@ -13,7 +13,7 @@ Term: Spring 2018
 	+ Mingming Liu
 	
 ![image](figs/1.jpg)
-+ Project summary: Music is a method that we can communicate with the other people. We express our happy, sad and anger. However, there are mathematical relationship inside it, like the octaves, keys and scales. Because of this precise relationship, we can use computer to generate musics.
++ Project summary: Music is a method that we can communicate with the other people. We express our happy, sad and anger. However, there are mathematical relationships behind it, like the octaves, keys and scales. Because of this precise relationship, we can use computer to generate music.
     In this project we implement recurrent neural network trained to generate pop music. The model, which uses LSTM layers and draws inspiration from convolutional neural networks, learns to predict which notes will be played at each time step of a musical piece.We used TensorFlow deep learning frame work and worte code in python. We need miod package to download midi files and the following packages are required: **mido**, **bs4**, **lxml**. The main document is used to train the model. Here, you can use our pre-trained model or change arguments in the main file to train a new model. After training this model, we can use the predict part to predict new songs. 
     
     The useage of the following file is listed below: (1)model.py is for the biaxial model class. There are two arguments for it, 'cache name' and 'model name'  (2) data.py is used to clean data for the model.  (3) midi_scraper.py is for scrape midi files. (3)midi_to_statematrix.py is to read the midi files and translate it to not state matrix. (4)operations.py is for truning a python function to tensorflow operation. (4)cache.py is used to save the input format of statematrix, which enables us train faster whithout translating data every time.
