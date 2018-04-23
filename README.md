@@ -1,6 +1,3 @@
-
-
-s
 # ADS Project 5: 
 
 Term: Spring 2018
