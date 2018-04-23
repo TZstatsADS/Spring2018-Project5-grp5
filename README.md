@@ -27,11 +27,11 @@ Term: Spring 2018
     
     (3) midi_scraper.py is for scrape midi files. 
     
-    (4)midi_to_statematrix.py is to read the midi files and translate it to not state matrix. 
+    (4)midi_to_statematrix.py is to read the midi files and translate it to not state matrix. 
     
     (5)operations.py is for truning a python function to tensorflow operation. 
     
-    (6)cache.py is used to save the input format of statematrix, which enables us train faster whithout translating data every time.
+    (6)cache.py is used to save the input format of statematrix, which enables us train faster whithout translating data every time.
 	
 **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 
