@@ -306,7 +306,7 @@ class biaxial_model(object):
               show_freq=10,
               save_freq=500,
               max_epoch=10000,
-              saveto='NewSong',
+              saveto='../output/NewSong',
               step=319,
               conservativity=1,
               pre_trained_model=None):
@@ -327,13 +327,13 @@ class biaxial_model(object):
 
         cur_model_name = 'biaxial_rnn_{}'.format(int(time.time()))
         batch_generator = data.generate_batch(cache,batch_size)
-        val_barch_generator = data.generate_val_batch(cache,batch_size)
+        val_batch_generator = data.generate_val_batch(cache,batch_size)
 
         loss_log = []
         min_loss = np.inf
         with tf.Session() as sess:
             merge = tf.summary.merge_all()
-            writer = tf.summary.FileWriter("log/{}".format(cur_model_name), sess.graph)
+            writer = tf.summary.FileWriter("../output/log/{}".format(cur_model_name), sess.graph)
 
             saver = tf.train.Saver()
             sess.run(tf.global_variables_initializer())
@@ -341,7 +341,7 @@ class biaxial_model(object):
             if pre_trained_model is not None:
                 try:
                     print("Load the model from: {}".format(pre_trained_model))
-                    saver.restore(sess, 'model/{}'.format(pre_trained_model))
+                    saver.restore(sess, '../output/model/{}'.format(pre_trained_model))
                     #writer = tf.summary.FileWriterCache.get('log/{}'.format(pre_trained_model))
                 except Exception:
                     print("Load model Failed!")
@@ -355,7 +355,9 @@ class biaxial_model(object):
                 _, loss,merge_result = sess.run((optimizer,self.loss,merge), feed_dict={self.input_mat : X_train, self.output_mat : y_train})
 
                 loss_log.append(loss)
-                pickle.dump(loss_log,open('model/'+cur_model_name+'_loss_log.pkl','wb'))
+                if not os.path.exists('../output/model'):
+                    os.makedirs("../output/model")
+                pickle.dump(loss_log,open('../output/model/'+cur_model_name+'_loss_log.pkl','wb'))
 
 
                 if i % show_freq == 0:
@@ -380,13 +382,13 @@ class biaxial_model(object):
 
                 # save the models for restoring training
                 if (i+1) % save_freq == 0:
-                    if not os.path.exists('model/'):
-                        os.makedirs('model/')
-                    saver.save(sess, 'model/{}'.format(cur_model_name))
+                    if not os.path.exists('../output/model/'):
+                        os.makedirs('../output/model/')
+                    saver.save(sess, '../output/model/{}'.format(cur_model_name))
                     print('{} Saved'.format(cur_model_name))
 
                     # Get validation data and validate
-                    xIpt_val, xOpt_val = next(val_barch_generator)
+                    xIpt_val, xOpt_val = next(val_batch_generator)
                     val_loss = sess.run((self.loss), feed_dict={
                         self.input_mat : xIpt_val, self.output_mat : xOpt_val
                     })
@@ -396,11 +398,11 @@ class biaxial_model(object):
                         min_loss = val_loss
 
                         # Save the best model
-                        saver.save(sess, 'model/{}_{}'.format('best',cur_model_name))
+                        saver.save(sess, '../output/model/{}_{}'.format('best',cur_model_name))
                         print('{}_{} Saved'.format('best',cur_model_name))
 
 
-    def predict(self,cache,pre_trained_model,n=1,saveto='NewSong',step=319,conservativity=1):
+    def predict(self,cache,pre_trained_model,n=1,saveto='../output/NewSong',step=319,conservativity=1):
         # This function predict only
         with tf.Session() as sess:
             saver = tf.train.Saver()

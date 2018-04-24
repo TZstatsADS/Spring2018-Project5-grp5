@@ -37,6 +37,8 @@ for link in midi_links:
     # If the composer directory doesn't exist yet, create it
     file_loc = link
     dir_loc = os.path.dirname(file_loc)
+    dir_loc = os.path.join('../data',dir_loc)
+    file_loc = os.path.join('../data',file_loc)
     if not os.path.exists(dir_loc):
         os.makedirs(dir_loc)
     urllib.request.urlretrieve(dl_url, file_loc)
