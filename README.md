@@ -36,7 +36,7 @@ Term: Spring 2018
     * `operations.py` is for truning a nupy python function to a tensorflow operation. 
     
     * `cache.py` is used to save the input format of noet state matrix, which enables us train faster whithout translating data every time.
-    * `main.py` is the main python script for training, it is intergrated with data download, cache initialization and training. It has two arguments `--cache_name` and `--model_name`. Both have default value. During the training process, a new song will be generated each 100 steps.
+    * `main.py` is the main python script for training, it is intergrated with data download, cache initialization and training. It has two arguments `--cache_name` and `--model_name`. Both have default value. During the training process, a new song will be generated every 100 steps.
     * `predict.py` is used to generate new music from a pre-trained model. It has two arguments `--cache_name` and `--model_name`. You need to assigne `model_name` to the script to run the script.
     
 + How to use it:
