@@ -13,7 +13,7 @@ if __name__ == '__main__':
         "--model_name", help="name of pre-trained model.", required=True)
     parser.add_argument(
         "--cache_dir", help="Path to cache file",
-        default='cache.pkl')
+        default='../output/cache.pkl')
     
     args = parser.parse_args()
     
@@ -22,14 +22,16 @@ if __name__ == '__main__':
     
 
     if not os.path.exists(cache_name):
-        composers = input("Enter composers separated by spaces: ").split()
+        composers = input("Enter composers separated by spaces, no input means all music: ").split()
         all_pieces = {}
         
         if len(composers)==0:
-            all_pieces.update(data.getpices(path="midis", mode='all'))
+            all_pieces.update(data.getpices(path="../data/midis", mode='all'))
+        elif composers[0] == 'pop':
+            all_pieces.update(data.getpices(path='../data/pop_midis', mode='all'))
         else:
             for c in composers:
-                all_pieces.update(data.getpices(path="../midis", composer=c))
+                all_pieces.update(data.getpices(path="../data/midis", composer=c))
 
         cache = data.initialize_cache(all_pieces, save_loc=cache_name)
     else:
@@ -41,4 +43,4 @@ if __name__ == '__main__':
     music_model = model.biaxial_model(t_layer_sizes=[300,300], n_layer_sizes=[100,50], trainer=tf.train.AdamOptimizer())
     
     print('Start predicting')
-    music_model.predict(cache,model_name,step=320,conservativity=1,n=50,saveto='predict songs')
+    music_model.predict(cache,model_name,step=320,conservativity=1,n=50,saveto='../output/predict songs')
