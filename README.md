@@ -22,7 +22,7 @@ Term: Spring 2018
     
     The main document is used to train the model. Here, you can use our pre-trained model or change arguments in the main file to train a new model. After training this model, we can use the predict part to predict new songs. 
     
-    The useage of the following file in `lib` folder is listed below: 
+    The useage of the files in `lib` folder is listed below: 
     
     * `model_tb.py` is for the biaxial model class(with tensorboard).   
     
@@ -39,8 +39,8 @@ Term: Spring 2018
     * `predict.py` is used to generate new music from a pre-trained model. It has two arguments `--cache_name` and `--model_name`. You need to assigne `model_name` to the script to run the script.
     
 + How to use it:
-    * For training move to `lib` and run `python main.py`. If you have not yet initialized the cache, there will be a popup asking you which composer you want to include, enter nothing means all composer in classical music, enter pop means train on pop music, enter any other composers' name with train on the specific composers works. (If you do not have the data from [piano-midi.de](http://www.piano-midi.de/) the script will automaticlly download for you.
-    * For generating new music move to `lib` and run `python predict.py --model_name ../output/model/biaxial_rnn_1524342232` this could generate the music from our pretrained model `biaxial_rnn_1524342232`. You could also replace this with the model you trained. If you do not have the cache, same thing will happen, descripted in how to use `main.py`
+    * **For training**, move to `lib` and run `python main.py`. If you have not yet initialized the cache, there will be a popup asking you which composer you want to include, enter nothing means all composer in classical music, enter pop means train on pop music, enter any other composers' name with train on the specific composers works. (If you do not have the data from [piano-midi.de](http://www.piano-midi.de/) the script will automaticlly download for you.
+    * **For generating**, new music move to `lib` and run `python predict.py --model_name ../output/model/biaxial_rnn_1524342232` this could generate the music from our pretrained model `biaxial_rnn_1524342232`. You could also replace this with the model you trained. If you do not have the cache, same thing will happen, descripted in how to use `main.py`
     * **Alternatively** you could go directly to the `doc/main.ipynb` and follow the instructions there.
 	
 **Contribution statement**: ([default](doc/a_note_on_contributions.md)) All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
