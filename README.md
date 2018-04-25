@@ -48,7 +48,7 @@ Term: Spring 2018
     * Yanjun Lin: Implemented the bi-axis LSTM model in tensorflow, and transformation of the midi files into note-state matrixs. Trained the model using pop music and classical piano sonatas. Experimented using different optimizers (i.g. Adam, RMSProp). 
     * Yu tong: Built a midi file scraper to download midi files of classical piano sonatas.
     * Linna Yu: Found midi files of pop music from internet. Cleaned code of the project. Analysed the generated music, and chose the better ones.
-    * Xiuruo Yan: Prepare the presentation. Conducted a deep research of the models that generate music.
+    * Xiuruo Yan: Prepared the presentation. Conducted a deep research of the models that generate music.
     * Mingming Liu: Implemented the cache part to accelerate the training process. Wrote the `main.ipynb` file.
 
 Following [suggestions](http://nicercode.github.io/blog/2013-04-05-projects/) by [RICH FITZJOHN](http://nicercode.github.io/about/#Team) (@richfitz). This folder is orgarnized as follows.
