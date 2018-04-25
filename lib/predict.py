@@ -27,7 +27,7 @@ if __name__ == '__main__':
         
         if len(composers)==0:
             all_pieces.update(data.getpices(path="../data/midis", mode='all'))
-        elif composers == 'pop':
+        elif composers[0] == 'pop':
             all_pieces.update(data.getpices(path='../data/pop_midis', mode='all'))
         else:
             for c in composers:
